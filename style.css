@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", sans-serif;
+  background: #f4f4f4;
+  line-height: 1.5;
+}
+.setting-top {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: -1em;
+}
+.setting-top h3 {
+  flex: 1;
+}
+.container {
+  margin: auto;
+  max-width: 60em;
+}
+span.writeout {
+  font-size: 10px;
+}
+section.settings {
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+}
+section.settings > div {
+  flex: 1;
+  padding: 0 0.5em;
+  margin: 0 0.5em;
+  background: #00000007;
+}
+section.settings input[type="checkbox"] {
+  display: none;
+}
+section.settings input[type="checkbox"] + label {
+  padding: 0px 2px;
+  margin: 2px;
+  background: #e0e0e0;
+  border: 1px solid #00000010;
+  border-radius: 4px;
+  opacity: 0.5;
+  cursor: pointer;
+  display: inline-flex;
+}
+section.settings input[type="checkbox"]:active + label {
+  opacity: 1;
+  color: white;
+  background: #0066ff;
+}
+section.settings input[type="checkbox"]:checked + label {
+  opacity: 1;
+  color: white;
+  background: #0088ff;
+}
+.presets {
+  margin-bottom: 1em;
+}

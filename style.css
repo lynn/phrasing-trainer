@@ -17,6 +17,7 @@ body {
 .container {
   margin: auto;
   max-width: 60em;
+  padding: 1em;
 }
 span.writeout {
   font-size: 10px;
@@ -26,11 +27,17 @@ section.settings {
   flex-direction: row;
   user-select: none;
 }
-section.settings > div {
+@media only screen and (max-width: 900px) {
+  section.settings {
+    flex-direction: column;
+  }
+}
+.settings-box {
   flex: 1;
   padding: 0 0.5em;
-  margin: 0 0.5em;
-  background: #00000007;
+  margin: 0.5em 0.5em;
+  background: #0000000a;
+  border-radius: 2px;
 }
 section.settings input[type="checkbox"] {
   display: none;
@@ -58,6 +65,24 @@ section.settings input[type="checkbox"]:checked + label {
 .presets {
   margin-bottom: 1em;
 }
+.prompt {
+  font-size: 18pt;
+}
 .hint {
   opacity: 0.6;
+  height: 1.5em;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+.trainer {
+  text-align: center;
+}
+summary {
+  cursor: pointer;
+}
+summary > h2 {
+  display: inline-block;
 }

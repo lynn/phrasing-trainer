@@ -5,80 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phrasing tutor</title>
   </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" type="text/css" href="style.css" />
   <body>
     <div class="container">
       <h1>Phrasing trainer</h1>
-      <h2>Settings</h2>
-      <div class="presets">Presets:&nbsp;</div>
-      <div class="hints">
-        Hints: <input type="radio" id="h-off" name="hints" value="off" />
-        <label for="h-off">Off</label>
-        <input checked type="radio" id="h-after" name="hints" value="after" />
-        <label for="h-after">After mistake</label>
-        <input type="radio" id="h-on" name="hints" value="on" />
-        <label for="h-on">On</label>
+
+      <details open>
+        <summary><h2>Settings</h2></summary>
+        <div class="settings-box" style="padding: 1em">
+          <div class="presets">Presets:&nbsp;</div>
+          <div class="hints">
+            Hints: <input type="radio" id="h-off" name="hints" value="off" />
+            <label for="h-off">Off</label>
+            <input
+              checked
+              type="radio"
+              id="h-after"
+              name="hints"
+              value="after"
+            />
+            <label for="h-after">After mistake</label>
+            <input type="radio" id="h-on" name="hints" value="on" />
+            <label for="h-on">On</label>
+          </div>
+        </div>
+        <section class="settings">
+          <div class="settings-box">
+            <div class="setting-top">
+              <h3>Simple phrasing</h3>
+              <a
+                class="cheat-sheet-link"
+                href="https://docs.stenokeyboards.com/images/Jeff-phrasing/simple.png"
+                >Cheat sheet</a
+              >
+            </div>
+            <p class="simple-starters">Starters:&nbsp;</p>
+            <p class="simple-pronouns">Pronouns:&nbsp;</p>
+            <p class="simple-options">
+              "have":&nbsp;<input
+                type="checkbox"
+                id="s-have"
+                name="s-have"
+              /><label for="s-have">F (have)</label>
+            </p>
+          </div>
+          <div class="settings-box">
+            <div class="setting-top">
+              <h3>Full phrasing</h3>
+              <a
+                class="cheat-sheet-link"
+                href="https://docs.stenokeyboards.com/images/Jeff-phrasing/full.png"
+                >Cheat sheet</a
+              >
+            </div>
+            <p class="full-starters">Starters:&nbsp;</p>
+            <p class="full-auxiliaries">Auxiliaries:&nbsp;</p>
+            <p class="full-structures">Structures:&nbsp;</p>
+          </div>
+          <div class="settings-box">
+            <div class="setting-top">
+              <h3>Verbs</h3>
+              <a
+                class="cheat-sheet-link"
+                href="https://docs.stenokeyboards.com/images/Jeff-phrasing/verbs.png"
+                >Cheat sheet</a
+              >
+            </div>
+            <p class="verbs">Verbs:&nbsp;</p>
+            <p class="verb-options">
+              Options:
+              <input type="checkbox" id="v-suffix" name="v-suffix" /><label
+                for="v-suffix"
+                >T/S (suffix)</label
+              ><input type="checkbox" id="v-past" name="v-past" /><label
+                for="v-past"
+                >D/Z (past)</label
+              >
+            </p>
+          </div>
+        </section>
+      </details>
+      <hr />
+      <div class="trainer">
+        <h2>Trainer</h2>
+        <div class="prompt">…</div>
+        <div class="hint">…</div>
+        <input type="text" onkeyup="checkAnswer(this)" />
+        <div class="score">Correct answers: 0</div>
       </div>
-      <br />
-      <section class="settings">
-        <div>
-          <div class="setting-top">
-            <h3>Simple phrasing</h3>
-            <a
-              class="cheat-sheet-link"
-              href="https://docs.stenokeyboards.com/images/Jeff-phrasing/simple.png"
-              >Cheat sheet</a
-            >
-          </div>
-          <p class="simple-starters">Starters:&nbsp;</p>
-          <p class="simple-pronouns">Pronouns:&nbsp;</p>
-          <p class="simple-options">
-            "have":&nbsp;<input
-              type="checkbox"
-              id="s-have"
-              name="s-have"
-            /><label for="s-have">F (have)</label>
-          </p>
-        </div>
-        <div>
-          <div class="setting-top">
-            <h3>Full phrasing</h3>
-            <a
-              class="cheat-sheet-link"
-              href="https://docs.stenokeyboards.com/images/Jeff-phrasing/full.png"
-              >Cheat sheet</a
-            >
-          </div>
-          <p class="full-starters">Starters:&nbsp;</p>
-          <p class="full-auxiliaries">Auxiliaries:&nbsp;</p>
-          <p class="full-structures">Structures:&nbsp;</p>
-        </div>
-        <div>
-          <div class="setting-top">
-            <h3>Verbs</h3>
-            <a
-              class="cheat-sheet-link"
-              href="https://docs.stenokeyboards.com/images/Jeff-phrasing/verbs.png"
-              >Cheat sheet</a
-            >
-          </div>
-          <p class="verbs">Verbs:&nbsp;</p>
-          <p class="verb-options">
-            Options:
-            <input type="checkbox" id="v-suffix" name="v-suffix" /><label
-              for="v-suffix"
-              >T/S (suffix)</label
-            ><input type="checkbox" id="v-past" name="v-past" /><label
-              for="v-past"
-              >D/Z (past)</label
-            >
-          </p>
-        </div>
-      </section>
-      <h2>Trainer</h2>
-      <div class="prompt">…</div>
-      <div class="hint">…</div>
-      <input type="text" onkeyup="checkAnswer(this)" />
     </div>
     <script type="text/javascript" src="main.js"></script>
   </body>

@@ -327,7 +327,7 @@ function generatePrompt() {
   const fst = structures.filter((x) => on("fst-" + x.stroke));
   const v = verbData.filter((x) => on("v-" + x.split(" ")[0]));
   if (!v.length) {
-    return "(No verbs selected.)";
+    return ["", "(No verbs selected.)"];
   }
   const verb = pick(v);
   const have = on("s-have") ? coin() : false;
@@ -336,7 +336,7 @@ function generatePrompt() {
   const simple = ss.length * sp.length > 0;
   const full = fs.length * fa.length * fst.length > 0;
   if (!simple && !full) {
-    return "(No phrases available.)";
+    return ["", "(No phrases available.)"];
   }
   const isFull = simple && full ? coin() : full;
   const [stroke, phrase] = isFull
@@ -350,11 +350,13 @@ function showHint() {
   document.querySelector(".hint").style.visibility = "visible";
 }
 
+score = 0;
 function nextPrompt() {
   const [hint, prompt] = generatePrompt();
   document.querySelector(".hint").innerText = hint;
   document.querySelector(".hint").style.visibility = "hidden";
   document.querySelector(".prompt").innerText = prompt;
+  document.querySelector(".score").innerText = "Correct answers: " + score;
   if (document.querySelector("#h-on:checked")) {
     showHint();
   }
@@ -364,6 +366,7 @@ function checkAnswer(input) {
   const answer = document.querySelector(".prompt").innerText;
   if (input.value.trim().toLowerCase() === answer.trim().toLowerCase()) {
     input.value = "";
+    score++;
     nextPrompt();
   } else if (document.querySelector("#h-after:checked")) {
     showHint();

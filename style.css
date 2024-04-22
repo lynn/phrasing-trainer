@@ -58,3 +58,6 @@ section.settings input[type="checkbox"]:checked + label {
 .presets {
   margin-bottom: 1em;
 }
+.hint {
+  opacity: 0.6;
+}

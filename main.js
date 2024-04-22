@@ -342,7 +342,6 @@ function generatePrompt() {
   const [stroke, phrase] = isFull
     ? makeFull(pick(fs), pick(fa), pick(fst), pick(v), past, suffix)
     : makeSimple(pick(ss), pick(sp), have, pick(v), past, suffix);
-  console.log({ ss, sp, fs, fa, fst });
   return [stroke, phrase];
 }
 
@@ -352,7 +351,14 @@ function showHint() {
 
 score = 0;
 function nextPrompt() {
-  const [hint, prompt] = generatePrompt();
+  let hint, prompt;
+  let tries = 0;
+  do {
+    [hint, prompt] = generatePrompt();
+  } while (prompt.includes("*") && tries++ < 100);
+  if (prompt.includes("*")) {
+    [hint, prompt] = ["", "(No phrases available.)"];
+  }
   document.querySelector(".hint").innerText = hint;
   document.querySelector(".hint").style.visibility = "hidden";
   document.querySelector(".prompt").innerText = prompt;

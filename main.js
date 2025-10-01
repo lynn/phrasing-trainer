@@ -2,6 +2,7 @@ const BE = "B are be am were was is being been/a";
 const DO = "RP do did does doing done/it";
 const HAVE = "T have had has having had/to";
 const verbData = [
+  "RB ask asked asks asking asked",
   BE,
   "RPBG become became becomes becoming become/a",
   "BL believe believed believes believing believed/that",
@@ -34,7 +35,6 @@ const verbData = [
   "LZ live lived lives living lived",
   "L look looked looks looking looked",
   "LG love loved loves loving loved/to",
-  "LS let let lets letting let",
   "RPBL make made makes making made/a",
   "PL may might may may might/be",
   "PBL mean meant means meaning meant/to",
